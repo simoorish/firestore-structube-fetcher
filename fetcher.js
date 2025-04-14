@@ -2,7 +2,6 @@ const { initializeApp, cert } = require('firebase-admin/app');
 const { getFirestore, Timestamp } = require('firebase-admin/firestore');
 const fs = require('fs');
 
-// Initialize Admin SDK with service account
 const serviceAccount = require('./serviceAccountKey.json');
 initializeApp({
   credential: cert(serviceAccount)
@@ -13,9 +12,9 @@ function inferDataType(value) {
   if (value === null) return 'null';
   if (Array.isArray(value)) return 'array';
   if (value instanceof Timestamp) return 'timestamp';
-  if (value instanceof Date) return 'timestamp'; // fallback for plain Date objects
+  if (value instanceof Date) return 'timestamp'; 
   if (typeof value === 'object') return 'map';
-  return typeof value; // string, number, boolean, etc.
+  return typeof value; 
 }
 
 async function getDocumentSchema(docRef) {
@@ -31,15 +30,12 @@ async function getDocumentSchema(docRef) {
 
 async function buildStructureForCollection(collectionRef) {
   const structure = { documents: {} };
-  // List all document references in the collection
   const docs = await collectionRef.listDocuments();
   for (const docRef of docs) {
     structure.documents[docRef.id] = {
       fields: await getDocumentSchema(docRef),
       subcollections: {}
     };
-
-    // Recursively explore each subcollection of the document
     const subcollections = await docRef.listCollections();
     for (const subCol of subcollections) {
       structure.documents[docRef.id].subcollections[subCol.id] = await buildStructureForCollection(subCol);
@@ -61,7 +57,6 @@ async function buildFirestoreStructure() {
   try {
     console.log('Fetching Firestore structure...');
     const structure = await buildFirestoreStructure();
-    // Save the complete structure (schema) to a JSON file
     fs.writeFileSync('firestore_structure.json', JSON.stringify(structure, null, 2));
     console.log('Structure saved to firestore_structure.json');
   } catch (error) {
