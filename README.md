@@ -33,10 +33,10 @@ Confirm that serviceAccountKey.json (your service account key) is located in the
 
 Run the following command to install the Firebase Admin SDK if you haven’t already:
 
-bash
+
 npm install firebase-admin
 Run the Script: Execute the script with Node.js:
 
-bash
+
 node fetcher.js
 Check the Output: Once the script completes, you’ll find a file named firestore_structure.json in your directory. Open it to view the full structure and schema of your Firestore database.
