@@ -1,4 +1,4 @@
-# firestore-structube-fetcher
+# firestore-structure-fetcher
 node.js script to fetch firestore database structure
 The Firestore Structure Fetcher is a Node.js script that helps you visualize and document the structure (or schema) of your Firestore database. Since Firestore is schemaless, this tool reads one document per collection (and per subcollection) to infer the field names and their data types (such as string, number, boolean, array, map, or timestamp). It recursively scans all top-level collections, documents, and any nested subcollections. The final output is stored as a JSON file that details every document’s field parameters—like id, color, etc.—without including the actual data values.
 
