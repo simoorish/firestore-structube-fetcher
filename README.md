@@ -16,6 +16,7 @@ Node.js: Ensure Node.js is installed. You can download it from nodejs.org.
 
 Firebase Admin SDK: Install the Firebase Admin SDK by running: <br/>
 npm install firebase-admin <br/>
+ <br/>
 Service Account Key:  <br/>
 
 In your Firebase Console, navigate to Project Settings > Service Accounts. <br/>
