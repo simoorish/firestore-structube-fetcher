@@ -27,10 +27,10 @@ Generate a new private key and download the JSON file.
 Save the file as serviceAccountKey.json in the same directory as fetcher.js.
 
 How to Use.
-Download the Script: Save the script as fetcher.js in a directory.
-Confirm that serviceAccountKey.json (your service account key) is located in the same folder as fetcher.js. 
-Run the following command to install the Firebase Admin SDK if you haven’t already: .
-npm install firebase-admin .
-Run the Script: Execute the script with Node.js: .
-node fetcher.js .
+Download the Script: Save the script as fetcher.js in a directory.<br/>
+Confirm that serviceAccountKey.json (your service account key) is located in the same folder as fetcher.js<br/>
+Run the following command to install the Firebase Admin SDK if you haven’t already: <br/>
+npm install firebase-admin <br/>
+Run the Script: Execute the script with Node.js: <br/>
+node fetcher.js <br/>
 Check the Output: Once the script completes, you’ll find a file named firestore_structure.json in your directory. Open it to view the full structure and schema of your Firestore database.
